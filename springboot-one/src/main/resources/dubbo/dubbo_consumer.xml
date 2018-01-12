@@ -10,7 +10,7 @@
     <dubbo:application name="dubbo_consumer" />
 
     <!-- 使用zookeeper注册中心暴露服务地址 -->
-    <dubbo:registry protocol="zookeeper" address="47.95.213.229:2181"/>
+    <dubbo:registry protocol="zookeeper" address="ip:2181"/>
 
     <!-- 生成远程服务代理，可以像使用本地bean一样使用demoService -->
     <dubbo:reference id="userServiceImpl" interface="com.zfq.springboot.service.UserService" />
