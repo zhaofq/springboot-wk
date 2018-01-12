@@ -1,0 +1,44 @@
+server:
+  port: 8080
+
+#数据源
+spring:
+      datasource:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          name: football
+          username: root
+          password: root
+          url: jdbc:mysql://47.95.213.229:3306/csfootball?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&maxReconnects=10&allowMultiQueries=true&useSSL=false
+          filters: stat
+          maxActive: 20
+          initialSize: 1
+          maxWait: 60000
+          minIdle: 1
+          timeBetweenEvictionRunsMillis: 60000
+          minEvictableIdleTimeMillis: 300000
+          validationQuery: select 'x'
+          testWhileIdle: true
+          testOnBorrow: false
+          testOnReturn: false
+          poolPreparedStatements: true
+          maxOpenPreparedStatements: 20
+      application.name: springboot-rabbitmq
+      rabbitmq:
+          host: 47.95.213.229
+          port: 5672
+          username: dev_1
+          password: dev_1
+          virtual-host: /
+          publisher-confirms: true
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.zfq.springboot.pojo
+
+#分页插件
+pagehelper:
+  params: count=countSql
+  support-methods-arguments: true
+  reasonable: true
+  auto-dialect: mysql
+
+

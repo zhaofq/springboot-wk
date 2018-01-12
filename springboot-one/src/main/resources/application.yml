@@ -1,0 +1,15 @@
+server:
+  port: 8081
+
+#数据源
+spring:
+      application.name: springboot-rabbitmq
+      rabbitmq:
+          host: 47.95.213.229
+          port: 5672
+          username: dev_1
+          password: dev_1
+          virtual-host: /
+          publisher-confirms: true
+
+

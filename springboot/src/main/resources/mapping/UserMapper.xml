@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+<mapper namespace='com.zfq.springboot.mapper.UserMapper'>
+	<insert id="addUser" parameterType="com.zfq.springboot.pojo.User">
+		insert into
+		TB_USER(ID,EMAIL,IDNUMBER,BIRTHDATE,LASTLOGINDATE,LOGINNAME,MOBILE,NAME,PASSPHRASE,REGISTERDATE,SALT)
+		values
+		(#{id},#{email},#{IdNumber},#{birthDate},#{lastLoginDate},#{loginName},
+		#{mobile},#{name},#{passPhrase},#{registerDate},#{salt})
+	</insert>
+
+	<select id="getUserByMobilefromSql" parameterType="String"
+		resultType="com.zfq.springboot.pojo.User">
+		SELECT
+		ID,
+		EMAIL,
+		IDNUMBER,
+		BIRTHDATE,
+		LASTLOGINDATE,
+		LOGINNAME,
+		MOBILE,
+		NAME,
+		PASSPHRASE,
+		REGISTERDATE,
+		SALT FROM TB_USER WHERE
+		<if test="_parameter!= null">
+			MOBILE=#{_parameter}
+		</if>
+	</select>
+</mapper>
